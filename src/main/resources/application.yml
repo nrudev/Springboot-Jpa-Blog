@@ -27,7 +27,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create # create = 같은 이름의 테이블이 있어도 테이블을 새로 만들겠다. => 최초에만 create, 다음에는 update로 수정해야 함.
+      ddl-auto: update # create = 같은 이름의 테이블이 있어도 테이블을 새로 만들겠다. => 최초에만 create, 다음에는 update로 수정해야 함.
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 엔티티를 만들 때 칼럼명과 변수명이 일치(ex> 변수명 myEmail => 칼럼명 myEmail)
                                               # SpringPhysicalNamingStrategy의 경우, 변수명이 카멜표기법으로 되어 있으면, _(언더바)로 구분(ex> 변수명 myEmail => 칼럼명 my_email)
