@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserRepository extends JpaRepository<User, Integer> {
     // JPA Naming 쿼리 전략
     // SELECT * FROM user WHERE username = ?1 AND password = ?2;
-    User findByUsernameAndPassword(String username, String password);
+//    User findByUsernameAndPassword(String username, String password);
 
 // => 아래와 같이 쓸 수도 있음.
 //    @Query(value="SELECT * FROM user WHERE username = ?1 AND password = ?2", nativeQuery = true)

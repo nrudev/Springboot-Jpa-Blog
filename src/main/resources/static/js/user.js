@@ -3,9 +3,6 @@ let index = {
         $('#btn-save').on("click", () => { // function(){}이 아닌 화살표 함수를 사용하는 이유: this를 바인딩하기 위해서.
             this.save(); // function(){} 을 사용할 경우, 여기에서의 this는 window 객체를 가리킨다.
         });
-        $('#btn-login').on("click", () => {
-            this.login();
-        });
     },
     save: function () {
         let data = {
@@ -17,7 +14,7 @@ let index = {
         // ajax 호출시 default가 비동기 호출
         $.ajax({
             type: 'POST',
-            url: '/api/user',
+            url: '/auth/joinProc',
             data: JSON.stringify(data), // http body 데이터. 자바스크립트 오브젝트를 JSON으로 변환.
             contentType: 'application/json; charset=utf-8', // body 데이터가 어떤 타입인지(MIME)
             dataType: 'json' // 서버로 요청해서 응답이 왔을 때 기본적으로 모든 것이 문자열 (생긴게 json이라면)  => 자바스크립트 오브젝트로 변경해줌
@@ -39,26 +36,6 @@ let index = {
                 - 작업을 순차적으로 수행할 경우, 다른 작업은 이전 작업이 완료될 때까지 기다려야 하는 비효율이 발생한다.
                 - ajax를 사용하면 회원가입을 수행하는 동안 다른 작업이 진행될 수 있도록 비동기 통신을 해줄 수 있음.
          */
-    },
-    login: function () {
-        let data = {
-            username: $('#username').val(),
-            password: $('#password').val()
-        }
-
-        $.ajax({
-            type: 'POST',
-            url: '/api/user/login',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json'
-        }).done(function (resp) {
-            alert("로그인이 완료되었습니다.");
-            console.log(resp);
-            location.href = "/";
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
     }
 }
 
