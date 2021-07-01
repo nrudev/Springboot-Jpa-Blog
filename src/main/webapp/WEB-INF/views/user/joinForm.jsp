@@ -22,4 +22,4 @@
 <br/>
 
 <%@ include file="../layout/footer.jsp" %>
-<script type="text/javascript" src="/blog/js/user.js"></script>
+<script type="text/javascript" src="/js/user.js"></script>

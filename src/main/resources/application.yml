@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /blog
+    context-path: /
     encoding:
       charset: UTF-8
       enabled: true
@@ -21,8 +21,8 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/blog?serverTimezone=Asia/Seoul
-    username: 
-    password:
+    username:
+    password: 
 
   jpa:
     open-in-view: true

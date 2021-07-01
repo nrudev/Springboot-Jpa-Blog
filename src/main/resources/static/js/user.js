@@ -17,14 +17,14 @@ let index = {
         // ajax 호출시 default가 비동기 호출
         $.ajax({
             type: 'POST',
-            url: '/blog/api/user',
+            url: '/api/user',
             data: JSON.stringify(data), // http body 데이터. 자바스크립트 오브젝트를 JSON으로 변환.
             contentType: 'application/json; charset=utf-8', // body 데이터가 어떤 타입인지(MIME)
             dataType: 'json' // 서버로 요청해서 응답이 왔을 때 기본적으로 모든 것이 문자열 (생긴게 json이라면)  => 자바스크립트 오브젝트로 변경해줌
         }).done(function (resp) {
             alert("회원가입이 완료되었습니다.");
             console.log(resp);
-            location.href = "/blog";
+            location.href = "/";
         }).fail(function (error) {
             alert(JSON.stringify(error));
         }); // ajax 통신을 이용해서 3개의 데이터를 JSON으로 변경하여 insert 요청
@@ -48,14 +48,14 @@ let index = {
 
         $.ajax({
             type: 'POST',
-            url: '/blog/api/user/login',
+            url: '/api/user/login',
             data: JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json'
         }).done(function (resp) {
             alert("로그인이 완료되었습니다.");
             console.log(resp);
-            location.href = "/blog";
+            location.href = "/";
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
