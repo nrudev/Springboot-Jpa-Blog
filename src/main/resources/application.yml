@@ -32,7 +32,7 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 엔티티를 만들 때 칼럼명과 변수명이 일치(ex> 변수명 myEmail => 칼럼명 myEmail)
                                               # SpringPhysicalNamingStrategy의 경우, 변수명이 카멜표기법으로 되어 있으면, _(언더바)로 구분(ex> 변수명 myEmail => 칼럼명 my_email)
       use-new-id-generator-mappings: false # false = JPA의 기본 넘버링 전략을 따라가지 않겠다
-    show-sql: true # true = 콘솔창에 SQL 구문 보여줌
+#    show-sql: true # true = 콘솔창에 SQL 구문 보여줌
     properties:
       hibernate.format_sql: true # true = 콘솔창에 보여지는 SQL 구문을 정리해서 보여줌
 
