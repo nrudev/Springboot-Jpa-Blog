@@ -9,9 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-
 @Service
 public class BoardService {
 
@@ -27,5 +24,10 @@ public class BoardService {
 
     public Page<Board> 글목록(Pageable pageable) {
         return boardRepository.findAll(pageable); // JpaRepository의 메서드. SELECT * FROM board;
+    }
+
+    public Board 글상세보기(int id) {
+        return boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("글 상세보기 실패 : 아이디를 찾을 수 없습니다."));
     }
 }
