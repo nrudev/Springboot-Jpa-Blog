@@ -41,7 +41,7 @@
                     <a class="nav-link" href="/user/form">회원정보</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">로그아웃</a>
+                    <a class="nav-link" href="/logout">로그아웃</a> <%-- 로그아웃 주소는 스프링 시큐리티에서 기본적으로 만들어져 있음 --%>
                 </li>
             </ul>
         </c:otherwise>
