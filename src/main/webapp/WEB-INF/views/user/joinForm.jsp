@@ -21,5 +21,5 @@
 </div>
 <br/>
 
-<%@ include file="../layout/footer.jsp" %>
 <script type="text/javascript" src="/js/user.js"></script>
+<%@ include file="../layout/footer.jsp" %>
