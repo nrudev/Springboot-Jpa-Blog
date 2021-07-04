@@ -6,6 +6,7 @@ import com.cos.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +22,12 @@ public class UserApiController {
         System.out.println("UserApiController: save 호출됨");
         userService.회원가입(user);
         return new ResponseDto<>(HttpStatus.OK, 1); // 자바 오브젝트를 JSON으로 변환해서 리턴(Jackson)
+    }
+
+    @PutMapping("/user")
+    public ResponseDto<Integer> update(@RequestBody User user) { // @RequestBody가 없으면 JSON 데이터 못 받고, key=value 형태의 데이터만 받을 수 있음.(x-www-form-urlencoded)
+        userService.회원수정(user);
+        return new ResponseDto<>(HttpStatus.OK, 1);
     }
 
     /* 전통적인 방식의 로그인 */

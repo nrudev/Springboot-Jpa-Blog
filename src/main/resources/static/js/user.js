@@ -3,6 +3,9 @@ let index = {
         $('#btn-save').on("click", () => { // function(){}이 아닌 화살표 함수를 사용하는 이유: this를 바인딩하기 위해서.
             this.save(); // function(){} 을 사용할 경우, 여기에서의 this는 window 객체를 가리킨다.
         });
+        $('#btn-update').on("click", () => { // function(){}이 아닌 화살표 함수를 사용하는 이유: this를 바인딩하기 위해서.
+            this.update(); // function(){} 을 사용할 경우, 여기에서의 this는 window 객체를 가리킨다.
+        });
     },
     save: function () {
         let data = {
@@ -36,7 +39,27 @@ let index = {
                 - 작업을 순차적으로 수행할 경우, 다른 작업은 이전 작업이 완료될 때까지 기다려야 하는 비효율이 발생한다.
                 - ajax를 사용하면 회원가입을 수행하는 동안 다른 작업이 진행될 수 있도록 비동기 통신을 해줄 수 있음.
          */
-    }
+    },
+    update: function () {
+        let data = {
+            id: $('#id').val(),
+            password: $('#password').val(),
+            email: $('#email').val()
+        }
+
+        $.ajax({
+            type: 'PUT',
+            url: '/user',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
+        }).done(function (resp) {
+            alert("회원수정이 완료되었습니다.");
+            location.href = "/";
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
 }
 
 index.init();
