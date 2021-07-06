@@ -22,7 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에서 연결된 DB의 넘버링 전략을 따라간다. => auto_increment
     private int id; // auto_increment(오라클의 sequence)
 
-    @Column(nullable = false, length = 30, unique = true)
+    @Column(nullable = false, length = 100, unique = true)
     private String username; // 아이디
 
     @Column(nullable = false, length = 100) // 왜 이렇게 길게? 123456 => 해쉬(비밀번호 암호화)
@@ -34,6 +34,8 @@ public class User {
 //    @ColumnDefault("user")
     @Enumerated(EnumType.STRING) // DB는 RoleType이라는 게 없다.
     private RoleType role; // 타입은 Enum을 쓰는게 좋다. Enum을 쓰면 데이터의 도메인을 만들어줄 수 있다. => 오타 방지, 범위 설정
+
+    private String oauth; // 로그인한 사용자가 카카오 로그인을 사용했는지 여부(kakao, google)
 
     @CreationTimestamp // 시간이 자동 입력
     private Timestamp createDate;

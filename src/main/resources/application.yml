@@ -39,3 +39,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+cos:
+  key: # 절대 노출되어선 안된다!!
