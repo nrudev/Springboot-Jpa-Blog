@@ -28,3 +28,5 @@ OAuth는 Open Authorization의 준말로, 내 웹서비스에서 **다른 서비
 
 - [OAuth 2.0 개요 및 보안 고려사항(pdf 파일)](https://www.fsec.or.kr/common/proc/fsec/bbs/42/fileDownLoad/265.do)
 
+- [[Spring] OAuth 2.0 동작 과정](https://vividswan.github.io/2020/09/04/Spring-OAuth-2.0-%EB%8F%99%EC%9E%91-%EA%B3%BC%EC%A0%95.html)
+
