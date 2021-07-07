@@ -1,5 +1,6 @@
 package com.cos.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +38,8 @@ public class Board {
 
     // OneToMany는 기본 전략이 EAGER이 아님.(LAZY) 필요하면 들고 오고 필요하지 않으면 들고 오지 않는다. 그러나 지금은 한 화면에 댓글을 바로 보여줄 것이기 때문에 EAGER 로 수정!
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계의 주인이 아니다(FK가 아니다) => DB에 칼럼을 만들지 마시오.
-    private List<Reply> reply;
+    @JsonIgnoreProperties({"board"}) // 무한 참조 방지
+    private List<Reply> replies;
 
     @CreationTimestamp
     private Timestamp createDate;
