@@ -37,8 +37,8 @@ public class Board {
     private User user; // DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 
     // OneToMany는 기본 전략이 EAGER이 아님.(LAZY) 필요하면 들고 오고 필요하지 않으면 들고 오지 않는다. 그러나 지금은 한 화면에 댓글을 바로 보여줄 것이기 때문에 EAGER 로 수정!
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계의 주인이 아니다(FK가 아니다) => DB에 칼럼을 만들지 마시오.
-    @JsonIgnoreProperties({"board"}) // 무한 참조 방지
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // mappedBy 연관관계의 주인이 아니다(FK가 아니다) => DB에 칼럼을 만들지 마시오.
+    @JsonIgnoreProperties({"board"}) // 무한 참조 방지            // CascadeType.REMOVE == Board 게시물을 지우면 댓글들도 다 지우겠다!(게시물 삭제하면 FK가 남아있어서 삭제 실패하는 문제 해결)
     @OrderBy("id desc") // id 내림차순으로 정렬
     private List<Reply> replies;
 
